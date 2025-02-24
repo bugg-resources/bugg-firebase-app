@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "bugg-analyses-birdnetlib"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+birdnetlib = "0.12.0"
+librosa = "^0.10.1"
+tflite-runtime = "^2.14.0"
+resampy = "^0.4.2"
+bugg-analysis-lib = {git = "git@github.com:/bugg-resources/bugg-analysis-lib.git"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,11 @@
+firebase-admin
+numpy 
+tensorflow
+tf_slim 
+six 
+soundfile 
+llvmlite==0.32.1
+matplotlib
+google-cloud-pubsub
+google-cloud-storage
+librosa

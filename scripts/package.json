@@ -1,0 +1,12 @@
+{
+  "name": "scripts",
+  "dependencies": {
+    "@google-cloud/pubsub": "^2.16.1",
+    "date-fns": "^2.16.1",
+    "firebase-admin": "^9.11.1",
+    "node-fetch": "^2.6.1",
+    "papaparse": "^5.3.1",
+    "seedrandom": "^3.0.5",
+    "uuid": "^8.3.2"
+  }
+}

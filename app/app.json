@@ -1,0 +1,10 @@
+{
+  "name": "bugg",
+  "displayName": "Bugg",
+  "expo": {
+    "name": "bugg",
+    "slug": "bugg",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"]
+  }
+}

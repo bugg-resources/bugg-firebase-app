@@ -1,0 +1,57 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Everyone can read all analyses. These are setup manually
+    match /analyses/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // you can fetch and update your own profile
+    match /profiles/{profileId} {
+      allow read, update: if profileId == request.auth.uid;
+    }
+
+    // configs are immutable and can only be created by a member of the project
+    match /config/{configId} {
+      allow read: if isMemberOfProject(resource.data.projectId, request.auth.uid);
+      allow create: if isMemberOfProject(request.resource.data.projectId, request.auth.uid);
+    }
+
+    // anyone in the project can update the project
+    match /projects/{projectId} {
+      allow read, write: if isMemberOfProject(projectId, request.auth.uid);
+    }
+    match /projects/{projectId}/{document=**} {
+      allow read, write: if isMemberOfProject(projectId, request.auth.uid);
+    }
+
+    // Any member of the project can read the audio
+    // Only the system can update the audio record
+    match /audio/{audioId} {
+      allow read: if isMemberOfProject(resource.data.project, request.auth.uid);
+      allow write: if false;
+    }
+
+    // Any member of the project can read or update detections
+    match /audio/{audioId}/detections/{detectionId} {
+      allow read: if isMemberOfProject(resource.data.project, request.auth.uid);
+      allow update: if isMemberOfProject(resource.data.project, request.auth.uid);
+    }
+
+    // Any member of the project can create or view an export job for their project
+    match /exports/{audioId} {
+      allow create: if isMemberOfProject(request.resource.data.projectId, request.auth.uid);
+      allow read: if isMemberOfProject(resource.data.projectId, request.auth.uid);
+    }
+
+    // True if the profile ID is a member of the project
+    function isMemberOfProject(projectId, profileId) {
+      return exists(/databases/$(database)/documents/projects/$(projectId)/members/$(profileId))
+    }
+  }
+}

@@ -1,0 +1,5 @@
+firebase-admin
+numpy 
+google-cloud-pubsub
+google-cloud-storage
+sklearn

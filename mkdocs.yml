@@ -1,0 +1,17 @@
+site_name: "Bugg App Documentation"
+theme:
+  name: "readthedocs"
+
+nav:
+  - Index: index.md
+  - Cloud Run Functions: runfunctions.md
+  - Audio Analyses: analysis.md
+  - Cloud Storage: storage.md
+  - Firestore Database: firestore.md
+  - Frontend: frontend.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+
+docs_dir: docs

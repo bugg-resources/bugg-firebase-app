@@ -1,0 +1,106 @@
+.InfoBar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  padding: 0px 1rem;
+  z-index: 401;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: calc(7rem + 2px);
+
+  background-color: rgba(0, 46, 42, 0.5);
+}
+
+.ForestInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ForestInfo h2 {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  margin: 0px;
+}
+
+.ForestInfo img {
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-right: 0.5rem;
+}
+
+.ForestInfo p {
+  color: #abd3cf;
+  margin-top: 0px;
+  font-size: 0.8rem;
+}
+
+.Time {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.tooltip {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  /* display: inline-block; */
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+  cursor: help;
+  user-select: none;
+}
+
+.tooltip span,
+.tooltip img {
+  position: absolute;
+  z-index: 400;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  font-size: 0.8rem;
+
+  bottom: 100%;
+  left: 50%;
+  margin-left: -90px;
+  width: 180px;
+}
+
+.tooltip img {
+  padding: 1px;
+}
+
+.tooltip span:after,
+.tooltip img:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.tooltip:hover span,
+.tooltip:hover img {
+  visibility: visible;
+}
