@@ -1,0 +1,25 @@
+name: Deploy docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - fe-live
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs
+        run: |
+          pip install mkdocs mkdocs-material
+
+      - name: Deploy site
+        run: |
+          mkdocs gh-deploy --force
