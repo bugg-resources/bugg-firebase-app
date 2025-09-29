@@ -9,3 +9,8 @@ Very lightweight documentation for this web app is available at: [bugg-resources
 We do not currently have a live server running the app for demonstration purposes.
 
 Do note that whilst all the code for real-time analysis of data is available within the repository, it will still require a significant amount of cloud computing expertise to deploy in practice. 
+
+## Known bugs to investigate
+
+* Configuration page exports JSON file with recording length encoded as a string (Bugg firmware expects numerical value)
+* Exports occasionally become infinitely queued (cause unknown)
